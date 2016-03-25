@@ -1,0 +1,51 @@
+{
+	"name": "sampleextension",
+	"displayName": "SampleExtension",
+	"description": "",
+	"version": "0.0.1",
+	"publisher": "linerec",
+	"engines": {
+		"vscode": "^0.10.10"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./out/src/extension",
+	"activationEvents": [
+		"onLanguage:asp",
+		"onLanguage:css",
+		"onLanguage:html"
+	],
+	"contributes": {
+		"commands": [{
+			"command": "sampleextension.compare",
+			"title": "Eduwill Extension: Compare File with Target Directory"
+		}],
+        "configuration": {
+			"sampleextension.targetfolderpath": {
+				"type": "string",
+				"default": "Y:\\www_eduwill_real",
+				"description": "Folder name in RealServer"
+			},
+			"sampleextension.watchfolderpath": {
+				"type": "string",
+				"default": "Z:\\Eduwill_Src",
+				"description": "Folder name in TestServer"
+			},
+			"sampleextension.externalcomparetoolpath": {
+				"type": "string",
+				"default": "C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe",
+				"description": "External Compare Tool Path"
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "^1.8.5",
+		"vscode": "^0.11.0"
+	}
+}
